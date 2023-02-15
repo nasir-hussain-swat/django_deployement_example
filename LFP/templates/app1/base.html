@@ -1,0 +1,16 @@
+<body>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'app1:register' %}">Register</a>
+        <a href="{% url 'admin:index' %}">Admin</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'app1:login' %}">Login</a>
+        {% endif %}
+    </nav>
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+</body>
